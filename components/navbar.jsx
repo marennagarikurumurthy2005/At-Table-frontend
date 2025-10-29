@@ -32,8 +32,8 @@ export function Navbar() {
             </Link>
 
             <Link
-              href="/admin"
-              className="px-4 py-2 text-foreground hover:text-orange-500 transition font-medium hidden sm:inline"
+              href="/login"
+              className="px-4 py-2 text-foreground hover:text-orange-500 transition font-medium  sm:inline"
             >
               Admin
             </Link>

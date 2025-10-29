@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { BarChart3, Package, ShoppingCart, DollarSign, Plus, Trash2, Eye, EyeOff, AlertCircle } from "lucide-react"
+import { BarChart3, Package, ShoppingCart, DollarSign, Plus, Trash2, Eye, EyeOff, AlertCircle ,LogOut} from "lucide-react"
 import { apiClient } from "@/lib/api-client"
 
 export default function AdminDashboard() {
@@ -209,10 +209,21 @@ try {
           <Link href="/" className="text-orange-500 hover:underline font-semibold">
             Back to Home
           </Link>
+          
+
         </div>
       </div>
     )
   }
+   const deleteToken = () => {
+  try {
+    localStorage.removeItem("token")         // main access token
+    localStorage.removeItem("refreshToken")  // optional if you store refresh token
+    console.log("✅ Tokens deleted successfully")
+  } catch (error) {
+    console.error("Error deleting token:", error)
+  }
+}
 
   return (
     <div className="min-h-screen bg-background">
@@ -221,6 +232,10 @@ try {
           <h1 className="text-2xl font-bold text-foreground">Admin Dashboard</h1>
           <Link href="/" className="text-orange-500 hover:underline font-semibold">
             Back to Home
+          </Link>
+          <Link onClick={deleteToken} href="/" className="text-white flex hover:bg-orange-600 font-semibold border border-orange-500  p-2 rounded-2xl bg-orange-400 ">
+            Logout <div className="ml-1.5"><LogOut/></div>
+            
           </Link>
         </div>
       </header>
