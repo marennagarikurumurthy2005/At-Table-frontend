@@ -27,7 +27,7 @@ export default function TrackOrderPage({ params }) {
     }
 
     fetchOrder()
-  }, [params.orderId])
+  }, [orderId])
 
   // Auto-refresh order status
   useEffect(() => {
