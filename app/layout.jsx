@@ -1,5 +1,3 @@
-'use client';
-import { useEffect } from 'react';
 import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { CartProvider } from "@/lib/cart-context"
@@ -19,12 +17,6 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
-  useEffect(() => {
-  fetch("https://at-table-backend.onrender.com/")
-    .then(() => console.log("Backend woken up ✅"))
-    .catch(() => console.log("Backend wake-up failed ❌"));
-}, []);
-
   return (
     <html lang="en">
       <head>

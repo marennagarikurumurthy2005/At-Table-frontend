@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Link from "next/link";
 import { ShoppingCart, Plus, Minus, X } from "lucide-react";
 import { useCart } from "@/lib/cart-context";
@@ -10,6 +10,12 @@ export function Navbar() {
   const [showCart, setShowCart] = useState(false);
 
   const cartTotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+   useEffect(() => {
+  fetch("https://at-table-backend.onrender.com/")
+    .then(() => console.log("Backend woken up ✅"))
+    .catch(() => console.log("Backend wake-up failed ❌"));
+}, []);
 
   return (
     <>
