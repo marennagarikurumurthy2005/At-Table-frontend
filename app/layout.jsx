@@ -17,6 +17,12 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+  useEffect(() => {
+  fetch("https://at-table-backend.onrender.com/")
+    .then(() => console.log("Backend woken up ✅"))
+    .catch(() => console.log("Backend wake-up failed ❌"));
+}, []);
+
   return (
     <html lang="en">
       <head>
